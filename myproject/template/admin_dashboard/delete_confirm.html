@@ -1,0 +1,13 @@
+{% extends "admin_dashboard/base.html" %}
+
+{% block title %}Confirm Delete{% endblock %}
+
+{% block content %}
+<h1>Delete {{ product.name }}</h1>
+<p>Are you sure you want to delete the product "{{ product.name }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes, delete</button>
+    <a href="{% url 'dashboard_index' %}" class="btn btn-secondary">No, cancel</a>
+</form>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ post.title }} - Organic{% endblock %}
+
+{% block content %}
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="post-content">
+          <h1>{{ post.title }}</h1>
+          <div class="post-meta d-flex text-uppercase gap-3 my-3 align-items-center">
+            <div class="meta-date"><svg width="16" height="16">
+                <use xlink:href="#calendar"></use>
+              </svg>{{ post.created_at|date:"d M Y" }}</div>
+            <div class="meta-categories"><svg width="16" height="16">
+                <use xlink:href="#category"></use>
+              </svg>{{ post.category.name }}</div>
+            <div class="meta-author">by {{ post.author.get_full_name|default:post.author.username }}</div>
+          </div>
+
+          {% if post.image %}
+          <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid my-4">
+          {% endif %}
+
+          <div class="post-description">
+            {{ post.content|linebreaks }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

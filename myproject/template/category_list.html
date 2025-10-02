@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}All Categories - Organic{% endblock %}
+
+{% block content %}
+<section class="py-5">
+  <div class="container">
+    <h1 class="display-4 text-center my-5">All Categories</h1>
+    <div class="row">
+      {% for category in categories %}
+      <div class="col-md-4 col-lg-3 mb-4">
+        <div class="card h-100 text-center">
+          <a href="{% url 'category_detail' category.slug %}">
+            {% if category.image %}
+            <img src="{{ category.image.url }}" class="card-img-top rounded-circle p-4" alt="{{ category.name }}">
+            {% else %}
+            <img src="{% static 'images/category-thumb-1.jpg' %}" class="card-img-top rounded-circle p-4" alt="Default Category Image">
+            {% endif %}
+          </a>
+          <div class="card-body">
+            <h5 class="card-title"><a href="{% url 'category_detail' category.slug %}" class="text-decoration-none text-dark">{{ category.name }}</a></h5>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

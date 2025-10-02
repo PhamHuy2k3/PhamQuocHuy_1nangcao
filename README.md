@@ -1,6 +1,6 @@
 # Đây là TRANG WEB BÁN HÀNG được viết theo CÁCH HAI
 - trang chủ: localhost:8000
-- trang adminDashboard: localhost:8000/dashboard
+- trang quản trị có chứa các chức năng CRUD (Thêm, Sửa, Xóa, Cập nhật): localhost:8000/dashboard
 - Cơ sở dữ liệu:
   +username: quochuy
   +password: 123456
